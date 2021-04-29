@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>목록태그</title>
+    </head>
+
+    <body>
+        <h1>목록태그</h1>
+        <h2>순서 없는 목록</h2>
+        <h3>내가 좋아하는 음식 best5</h3>
+        <ul> <!-- <ul> 단독은 type = "disc"와 동일 -->
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ul>
+        <ul type = "square">
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ul>
+        <ul type = "circle">
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ul>
+        <ul>
+            <li>분식
+                <ul>
+                    <li>라면
+                        <ul>
+                            <li>떡라면</li>
+                            <li>매운라면</li>
+                            <li>치즈라면</li>
+                        </ul>
+                    </li>
+                    <li>떡볶이</li>
+                    <li>김밥</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+        <h2>순서 있는 목록</h2>
+        <h3>내가 좋아하는 음식 best5</h3>
+        <ol>
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ol>
+        <ol type = "a">
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ol>
+        <ol type = "I">
+            <li>감자튀김</li>
+            <li>햄버거</li>
+            <li>김치볶음밥</li>
+            <li>민트초코</li>
+            <li>피자</li>
+        </ol>
+        <ol type="I">
+        <!-- ul 태그와는 달리 목록을 중첩시켜도 기호가 자동으로 안 바뀐다.-->
+            <li>분식
+                <ol type="a">
+                    <li>라면
+                        <ol type="1">
+                            <li>떡라면</li>
+                            <li>매운라면</li>
+                            <li>치즈라면</li>
+                        </ol>
+                    </li>
+                    <li>떡볶이</li>
+                    <li>김밥</li>
+                </ol>
+            </li>
+        </ol>
+        <hr>
+        <h2>정의목록</h2>
+        <dl>
+            <dt>WWW</dt>
+            <dd>WWW는 world wide web의 약자로 어쩌구저쩌구... </dd>
+
+            <dt>HTML</dt>
+            <dd>HTML은 hypertext markup language의 약자로 어쩌구저쩌구... </dd>
+
+            <dt>CSS</dt>
+            <dd>CSS는 cascade style sheet의 약자로 어쩌구저쩌구... </dd>
+
+        </dl>
+
+
+
+    </body>
+</html>
+
+
+<!--
+목록 다루기
+리스트: 여러 요소들을 일렬로 나열한 목록이나 명단을 의미
+HTML에서는 ul, ol, dl이라는 태그로 표현 가능
+
+또한, 웹페이지 내 메뉴를 정의할 때나 상품 목록을 나타낼 때에도 사용함
+
+정의목록
+용어와 그 용어의 뜻을 나열할 때 사용
+정의목록은 dl, dt는 정의 용어, dd는 정의 설명 -->
+
+

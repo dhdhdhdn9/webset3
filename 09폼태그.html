@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>폼태그</title>
+    </head>
+
+    <body>
+        <h1>폼 태그</h1>
+        <h2>간단한 폼 작성하기 - 로그인</h2>
+        <form method="post" name="loginfrm">
+            <div>아이디: <input type="text" name="uid"></div>
+            <div>비밀번호: <input type="password" name="pwd"></div>
+            <div><button type="submit">로그인하기</button></div>
+        </form>
+
+        <h2>다양한 입력요소 알아보기</h2>
+        <form name = "anotherfrm" method="post">
+            <div>성별:
+                <input type="radio" name="gender" value="m">남
+                <input type="radio" name="gender" value="f">여
+            </div>
+            <div>취미:
+                <input type="checkbox" name="hobby" value="book">독서
+                <input type="checkbox" name="hobby" value="trip">여행
+                <input type="checkbox" name="hobby" value="sports">운동
+                <input type="checkbox" name="hobby" value="mint">민트초코 먹기
+            </div>
+            <div>전화번호:
+                <select name = "hp1"><option>-국번-</option>
+                    <option>010</option>
+                    <option>011</option>
+                    <option>016</option>
+                </select> -
+                <input type = "text" name="hp2" size="5"> -
+                <input type = "text" name="hp3" size="5">
+            </div>
+            <div>자기소개:
+            <textarea name="intro" cols="50" rows="10"></textarea></div>
+            <div><button type="submit">입력완료</button></div>
+        </form>
+
+        <div>
+            <p style="background: green">Hello, world</p>
+            <p style="color: red">Hello, world</p>
+            <p style="text-align: center">Hello, world</p>
+        </div>
+
+
+    </body>
+</html>
+
+<!--
+
+폼form
+사용자가 서버에 어떤 정보를 요청해서 결과를 받아오기 위해 작성하는 특별한 양식(신청서)
+
+action: 클라이언트가 전송할 데이터를 처리할 대상을 지정
+        (웹 어플리케이션 서버가 반드시 필요)
+
+enctype: 클라이언트가 전송한 데이터 유형
+         (텍스트, 혼합(다중: 텍스트+바이너리))
+
+method: 클라이언트 데이터를 서버로 어떻게 전달할지 결정
+
+
+post vs. get
+
+post: http 요청 헤더에 당아서 서버로 전송
+      데이터가 외부에 노출되지 않고, 전송할 수 있는 데이터의 크기도 무제한
+      보안성과 활용성이 get 방식보다 낫다.
+
+get: url 뒤에 질의문자열querystring을 추가해서 서버에 전달하는 방식
+     ex. show.jsp?userid=abc&passwd=123
+     데이터가 외부에 그대로 노출되고, 전송할 수 있는 데이터의 크기도 제한적이다.
+     데이터의 중요도가 낮고 크기가 작으며 공개되어도 상관없는 경우 사용
+     form 없이 서버로 데이터를 전송하는 것이 가능하다.
+
+
+폼 관련 요소
+label: 폼에 이름을 붙일 때 사용하는 태그
+       'for'라는 속성을 이용해서 관련 있는 입력 요소의 id 값을 지정해야 한다.
+input: 사용자로부터 데이터를 입력 받을 때 사용하는 태그
+       placeholder
+       type: 입력할 데이터의 유형 정의
+             text, password: 문자 데이터
+             textarea: 대량 문자 데이터
+             radio, checkbox, select: 다중 선택 데이터
+       name: 서버 전송 시 사용할 데이터 이름
+
+-->

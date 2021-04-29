@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>이미지태그</title>
+    </head>
+
+    <body>
+        <h1>이미지 태그</h1>
+
+        <h2>이미지</h2>
+        <p><img src="img/curly.png"></p>
+        <p><img src="img/curly1.png" alt="햄까스(돼지)"></p>
+        <p><img src="img/Isabelle.png"></p>
+        <p><img src="img/Isabelle1.png" alt="여울(강아지)"></p>
+        <p><img src="img/Marshal.png"></p>
+        <p><img src="img/Marshal1.png" alt="쭈니(다람쥐)"></p>
+        <hr>
+        <p><img src="img/2ed71d1a85b6c0e20366a971fc984ed5.gif"></p>
+        <p><img src="img/20130125181216_6417.jpg"
+                    width="50%" height="50%"></p>
+        <hr>
+        <p>
+            <figure>
+            <img src ="img/curly.png">
+                <figcaption>그림 1-1 햄까스</figcaption>
+            </figure>
+        </p>
+
+
+    </body>
+</html>
+
+<!--
+이미지
+웹문서에 이미지를 삽입하는 태그
+주요 속성: src, alt, width, height, loading 등
+src: 문서에 나타낼 이미지 경로 지정
+width, height: 이미지의 크기를 재조정하는 속성. 단위는 %(브라우저에 대한 상대크기), px(절대크기)
+
+웹이미지 3종 세트
+gif
+graphic interchange format
+      1987년 미국 통신업체인 컴서브에서 개발
+      최대 256색 표현가능, 비손실 압축 지원
+      투명이미지, 애니메이션 지원, 특허가 등록되어 있음(2006년 만료)
+
+jpg
+joint picture experts group
+      이미지 압축기술자 모임인 JPEG에서 개발
+      RGB/CMYK 모드 지원 (표현가능색상수 백만가지 이상)
+      이미지 압축수준을 조정할 수 있음 <-> 이미지의 질이 낮아질수 있음
+
+png
+portable network graphics
+      GIF의 특허에 대항해서 개발된 포맷
+      JPG, GIF의 장점을 합친 파일 포맷
+      대신 JPG, GIF 보다 이미지 용량이 상대적으로 큼
+      단, 애니메이션은 만들 수 없음
+
+
+alt
+이미지를 불러오지 못하는 경우 대신 출력할 내용을 정의
+
+loading
+이미지 불러오는 방식을 지정하는데 사용
+eager: 페이지의 모든 이미지를 불러옴(기본)
+lazy: 페이지가 브라우저 가시 영역에 들어오면 그때서야 이미지를 불러옴
+        불필요한 이미지 로딩을 줄여서 데이터 소모를 줄일 수 있음
+
+이미지 제목: figure, figcaption
+이미지에 제목을 부여하고싶은 경우
+figure태그로 이미지를 둘러싼 후 figcaption으로 제목 작성
+
+
+-->
