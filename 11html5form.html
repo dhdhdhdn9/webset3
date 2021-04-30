@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>html5폼태그</title>
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+        <h1>html5 폼 태그</h1>
+        <h2>간단한 폼 작성하기 - 로그인</h2>
+        <form method="post" name="loginfrm">
+            <div>아이디: <input type="text" name="uid" required></div>
+            <div>비밀번호: <input type="password" name="pwd" required></div>
+            <div><button type="submit">로그인하기</button></div>
+        </form>
+
+        <form method="post" name="loginfrm2">
+            <div><input type="text" name="uid" placeholder="아이디" required></div>
+            <div><input type="password" name="pwd" placeholder="비밀번호" required></div>
+            <div><button type="submit">로그인하기</button></div>
+        </form>
+
+        <h2>다양한 html5 폼요소</h2>
+        <form name="html5">
+            <div><input type="date" name="date"></div>
+            <div><input type="time" name="time"></div>
+
+            <div><input type="number" name="age" min="0" max="100"></div>
+
+            <div><input type="email" name="email"></div>
+            <div><input type="url" name="url"></div>
+            <div><input type="tel" name="tel" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}"></div>
+
+            <div><input type="text" name="abc" disabled></div>
+            <div><input type="text" name="xyz" value="이 글이 보이나요?" readonly></div>
+
+            <div><button type="submit">입력완료</button></div>
+        </form>
+
+
+    </body>
+</html>
+
+<!--
+
+html5 폼 요소 추가사항
+    type: number, range, color, date, time, email, url, tel, search
+
+    required: 반드시 입력해야하는 항목 명시
+    placeholder: 입력해야할 사항을 폼 안에 명시
+    min: 숫자 입력 시 최소값 지정
+    max: 숫자 입력 시 최대값 지정
+    pattern: 폼에 입력된 값이 적절한 규칙을 만족하는지 검사
+             이러한 검사식은 정규표현식으로 정의해야함
+    정규표현식: 특정한 규칙을 가지는 문자열의 집합을 찾아내기 위한 표현식
+
+    disabled: 사용자가 폼 요소를 사용하지 못하게 막음
+              또한, submit 시 해당 폼 요소는 서버로 전송되지 않음
+
+    readonly: 사용자가 폼 요소를 사용하지 못하게 막음
+              단, submit 시 해당 폼 요소가 서버로 전송됨
+
+
+-->
