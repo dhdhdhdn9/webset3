@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>background</title>
+
+        <style>
+            .box {width: 300px; height: 200px;}
+            .box1 {background-image: url(img/dog.png)}
+            .box2 {background-image: url(img/dog.png);
+                    background-repeat: repeat-x }
+            .box3 {background-image: url(img/dog.png);
+                    background-repeat: no-repeat}
+            .box4 {background-image: url(img/dog.png);
+                    background-repeat: no-repeat;
+                    background-position: center}
+
+            .sprite1, .sprite2, .sprite3 {
+                background: url(img/img_navsprites.gif)}
+
+            .sprite1 {width: 134px; height: 44px}
+            .sprite2 {width: 134px; height: 44px}
+            .sprite3 { width: 134px; height: 44px; background-position: -46px 0}
+
+            .prev, .home, .next {
+                background: url(img/img_navsprites.gif)}
+
+
+            .btn {width: 43px; height: 43px}
+            .home {}
+            .prev {background-position: -47px 0}
+            .next {background-position: -91px 0}
+
+            .home:hover {background-position: 0 -45px}
+            .prev:hover {background-position: -47px -45px}
+            .next:hover {background-position: -91px -45px}
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>배경</h1>
+        <h2>배경색</h2>
+        <p style="background-color: gold">이 글이 보이나요?</p>
+
+        <h2>배경이미지</h2>
+        <div class="box box1"></div>
+        <hr>
+        <div class="box box2"></div>
+        <hr>
+        <div class="box box3"></div>
+        <hr>
+        <div class="box box4"></div>
+        <hr>
+        <div class="box box5"></div>
+
+
+        <h2>이미지 스프라이트</h2>
+        <div class="sprite1"></div>
+        <div class="sprite2"></div>
+        <div class="sprite3"></div>
+
+        <hr>
+        <div class="sprite1 btn home"></div>
+        <div class="sprite1 btn next"></div>
+        <div class="sprite1 btn prev"></div>
+
+
+
+
+
+
+    </body>
+</html>
+
+<!--
+배경
+    이미지나 특정색으로 요소의 배경을 지정할 수 있다.
+
+배경색
+    background-color 속성으로 배경색 지정 가능
+
+배경이미지
+    background-image 속성으로 배경이미지 지정 가능
+    이미지 영역보다 이미지가 작은 경우 반복적으로 이미지가 표시된다
+    background-repeat 속성을 이용하면 반복적으로 표시되는 이미지를 적절히 조절할 수 있다.
+    background-position을 이용하면 배경에 있는 이미지의 위치를 변경할 수 있다.
+
+    위 속성들을 축약형으로도 사용할 수 있다.
+    background: 배경색/이미지/반복/위치/고정여부
+
+이미지 스프라이트sprite
+    웹페이지에 사용하는 이미지들을 하나의 이미지 파일에 합쳐서 관리하는 기법
+    웹페이지에서 이미지를 요청할 때마다 서버와 통신을 하게 되는데 이미지 수가 많은 경우 빈번한 요청으로 인해 이미지 로딩이 느려지고 서버에 부하가 많이 생긴다.
+    반면, 스프라이트를 사용하면 서버 요청을 단 몇번으로 줄일 수 있고, 로딩 시간이 단축되는 효과가 있다. 또한, 많은 이미지 파일을 관리하는 것보다 몇개의 파일만 관리하면 되므로 간편하다
+
+-->
+

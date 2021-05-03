@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>hellocss</title>
+        <link href="12hellocss.css" rel="stylesheet">
+        <style>
+            .embeded{color: blue; font-weight: bold;}
+        </style>
+
+    </head>
+
+    <body>
+        <h1>Hello CSS</h1>
+        <h2>인라인 스타일</h2>
+        <p style="color: red">이 글이 보이나요?</p>
+
+        <h2>임베디드 스타일</h2>
+        <p class="embeded">이 글이 보이나요?</p>
+
+        <h2>외부 스타일</h2>
+        <p class="external">이 글이 보이나요?</p>
+
+    </body>
+</html>
+
+<!--
+
+cascade stylesheet
+    html요소들이 각종 미디어(웹/모바일/PC/TV 등)에서 어떻게 보이는가를 정의하는데에 사용하는 언어
+    html5 이전에는 html 각 태그에서 세부 스타일을 일일이 지정했었다. 이럴 경우 스타일 변경 및 유지보수가 매우 힘들어지는 경우가 발생한다.
+    이를 보완하기 위해 w3c에서 만든 스타일시트언어가 css이다.
+
+스타일 시트
+    웹페이지의 내용과 스타일 부분을 서로 분리해놓은 서식
+
+기본문법
+    선택자selector와 선언부로 구성
+    선택자: css를 적용하고자하는 html 요소
+    선언부: 하나 이상의 스타일을 정의한 부분
+            속성명과 속성값으로 구성
+            하나의 선언이 끝나면 세미콜론(;)으로 종결
+
+스타일 적용 방법
+    1. inline: 각 태그의 style 속성을 이용해서 스타일 적용
+    2. embeded: head 태그 내 style 태그에 스타일 정의, 그 후 선택자로 스타일 적용
+    3. external: 독립적인 css 파일에 스타일 정의
+                 head 태그 내 link 태그로 css 파일 지정
+                 선택자로 스타일 적용 (추천!)
+
+적용 우선순위
+    inline > embeded > external
+
+-->

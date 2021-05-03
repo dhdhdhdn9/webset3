@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>css selector</title>
+        <style>
+            p {color: red;} /*  태그 선택자 */
+
+            #One {color: blue;}
+
+            .Two {color: green;}
+
+            /* h3 {font-weight: normal; margin: 0}
+            h4 {font-weight: normal; margin: 0}
+            h5 {font-weight: normal; margin: 0} */
+            h3, h4, h5 {font-weight: normal; margin: 0}
+
+            ol li {background: yellow}
+
+            a:link { text-decoration: none; color: red }
+            a:visited { text-decoration: none; color: red }
+            a:hover { text-decoration: underline; color: blue}
+            a:active { text-decoration: none; color: orange}
+
+            div input:hover { background: yellow }
+            div input:focus { background: gold }
+
+            /* ul li:first-child { color: blue }
+            ul li:last-child { color: red } */
+            ul li:nth-child(odd) { color: green }
+            ul li:nth-child(even) { color: gold }
+            ul li:nth-child(3) { color: lime }
+
+            input[type="text"] {background: yellow}
+            input[type="password"] {background: aqua}
+            input[type="radio"]: checked {display: none;}
+
+
+        </style>
+    </head>
+
+    <body>
+        <h1>css 선택자</h1>
+        <h2>요소 선택지</h2>
+        <p>이 글이 보이나요? </p>
+
+        <h2>아이디 선택자</h2>
+        <p id="One">이 글이 보이나요?</p>
+
+        <h2>클래스 선택자</h2>
+        <p class="Two">이 글이 보이나요?</p>
+
+        <h2>그룹 선택자</h2>
+        <h3>이 글이 보이나요?</h3>
+        <h4>이 글이 보이나요?</h4>
+        <h5>이 글이 보이나요?</h5>
+
+        <h2>자손 선택자</h2>
+        <ol>
+            <li>플레이스테이션</li>
+            <li>엑스박스</li>
+            <li>스위치</li>
+        </ol>
+
+        <h2>의사 클래스</h2>
+        <a href="#">구글로 이동</a>
+        <div>아이디<input type = "text"></div>
+        <div>비밀번호<input type = "password"></div>
+
+        <h2>구조 의사 선택자</h2>
+        <ul>
+            <li>플레이스테이션</li>
+            <li>엑스박스</li>
+            <li>스위치</li>
+        </ul>
+
+        <h2>속성 선택지</h2>
+        <div>아이디<input type = "text"></div>
+        <div>비밀번호<input type = "password"></div>
+        <div>성별<input type = "radio">남
+                 <input type = "radio">여</div>
+
+
+    </body>
+</html>
+
+<!--
+
+선챡자
+    css 스타일을 적용할 대상을 선택하는 방법
+    대표적 선택지 요소: 요소선택자/아이디 선택자/클래스 선택자
+    고급 선택자: 후손, 반응, 상태, 구조
+
+요소element/타입type/태그tag 선택자
+    특정 html태그를 대상으로 스타일 적용
+
+아이디 선택자
+    id로 부여된 특정요소에 스타일 적용
+    스타일을 적용할 대상은 id 속성으로 이름을 정의해둬야함
+    선택자는 '#id이름'으로 지정함
+
+클래스 선택자
+    특정 스타일을 여러 요소들에 적용
+    선택자는 '.클래스이름'로 지정한다
+    스타일을 적용할 대상들은 class 속성을 이용함
+
+그룹 선택자
+    여러 선택자를 지정해서 스타일 적용
+    각 선택자는 ,로 구분해서 정의
+
+자손 선택자
+    특정 요소를 기준으로 모든 하위 요소들을 대상으로 스타일 적용
+    단, 상위요소와 하위요소는 공백으로 구분해서 선언
+
+의사pseudo(가짜) 클래스 선택자
+    해당 요소에는 실제로 존재하지 않지만, 클래스가 선언된 것처럼 간주해서 만든 선택자를 의미
+    선언 방법은 '태그명:의사클래스명;' 형태
+    종류는 크게 2가지
+    1. a태그에 적용 => :link, :visited
+    2. 반응 의사 클래스 => :hover, :active, :focus
+
+구조 의사 선택자
+    html요소 계층구조에서 특정 위치에 있는 요소를 선택한다
+    :first-chiled, :last-child, :nth-child
+
+속성 선택자
+    지정한 속성이나 특정 속성값이 잇는 요소에 스타일 지정
+    [] 안에 속성/속성=값을 선언하면 된다.
+-->
+
