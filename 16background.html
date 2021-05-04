@@ -35,6 +35,11 @@
             .prev:hover {background-position: -47px -45px}
             .next:hover {background-position: -91px -45px}
 
+            ul { list-style-type: none; margin: 0; padding: 0 }
+            /* ul li { list-style-image: url(img/dog.png) ;
+                    padding-bottom: -50px;} */
+            ul li { background: url(img/dog.png) no-repeat left top; height: 35px;
+                    padding-left: 45px; padding-top: 5px;}
 
 
         </style>
@@ -68,6 +73,15 @@
         <div class="sprite1 btn next"></div>
         <div class="sprite1 btn prev"></div>
 
+        <h2>블릿 이미지</h2>
+        <ul>
+            <li>감자튀김</li>
+            <li>피자</li>
+            <li>햄버거</li>
+            <li>민트초코</li>
+            <li>김치볶음밥</li>
+        </ul>
+
 
 
 
@@ -81,13 +95,13 @@
     이미지나 특정색으로 요소의 배경을 지정할 수 있다.
 
 배경색
-    background-color 속성으로 배경색 지정 가능
+    background-color 속성: 배경색 지정
 
 배경이미지
-    background-image 속성으로 배경이미지 지정 가능
-    이미지 영역보다 이미지가 작은 경우 반복적으로 이미지가 표시된다
-    background-repeat 속성을 이용하면 반복적으로 표시되는 이미지를 적절히 조절할 수 있다.
-    background-position을 이용하면 배경에 있는 이미지의 위치를 변경할 수 있다.
+    background-image 속성: 배경이미지 지정
+                           이미지 영역보다 이미지가 작은 경우 반복적으로 이미지가 표시된다
+    background-repeat 속성: 반복적으로 표시되는 이미지를 적절히 조절
+    background-position 속성: 배경에 있는 이미지의 위치를 변경
 
     위 속성들을 축약형으로도 사용할 수 있다.
     background: 배경색/이미지/반복/위치/고정여부
@@ -96,6 +110,14 @@
     웹페이지에 사용하는 이미지들을 하나의 이미지 파일에 합쳐서 관리하는 기법
     웹페이지에서 이미지를 요청할 때마다 서버와 통신을 하게 되는데 이미지 수가 많은 경우 빈번한 요청으로 인해 이미지 로딩이 느려지고 서버에 부하가 많이 생긴다.
     반면, 스프라이트를 사용하면 서버 요청을 단 몇번으로 줄일 수 있고, 로딩 시간이 단축되는 효과가 있다. 또한, 많은 이미지 파일을 관리하는 것보다 몇개의 파일만 관리하면 되므로 간편하다
+
+
+블릿이미지
+    목록 태그에 글머리 기호는 크게 3가지 종류로 나뉜다.
+    하지만, 기호를 이미지로 대신할 수도 있다.
+    list-style-type 속성: 기호의 종류를 변경하거나 숨긴다
+    list-style-image 속성: 블릿 이미지를 표시
+
 
 -->
 

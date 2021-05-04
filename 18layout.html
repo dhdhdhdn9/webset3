@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>layout</title>
+
+        <style>
+            hr {margin: 50px 0}
+            .box {width: 200px; height: 70px }
+            .bg1 {background: aliceblue;}
+            .bg2 {background: indianred;}
+            .bg3 {background: forestgreen;}
+
+            .ab1, .ab2, .ab3 {position: absolute}
+            .ab1 {top: 50px; left: 200px;}
+            .ab2 {top: 70px; left: 70px;}
+            .ab3 {top: 100px; left: 50px;}
+
+            .bg4 {background: tomato;}
+            .bg5 {background: gold;}
+            .bg6 {background: lavender;}
+
+            .rt1, rt2, rt3 {position: relative}
+            .rt1 {top: 50px; left: 50px;}
+            .rt2 {top: 70px; left: 70px;}
+            .rt3 {top: 100px; left: 100px;}
+
+            .bg7 {background: turquoise;}
+            .bg8 {background: firebrick;}
+            .bg9 {background: slategray;}
+
+            .fx1, .fx2, .fx3 {position: fixed}
+            .fx1 {top: 50px; right: 50px;}
+            .fx2 {top: 70px; right: 70px;}
+            .fx3 {top: 100px; right: 100px;}
+
+            .bg10 {background: seashell;}
+            .bg11 {background: rosybrown;}
+            .bg12 {background: teal;}
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>위치지정</h1>
+        <h2>정적배치 static</h2>
+        <div class="box bg1"></div>
+        <div class="box bg2"></div>
+        <div class="box bg3"></div>
+        <hr>
+
+        <h2>절대배치 absolute</h2>
+        <div class="box bg4 ab1">
+            <div class="box bg5 ab2">
+                <div class="box bg6 ab3"></div>
+            </div> <!-- ab2 -->
+        </div> <!-- ab1 -->
+        <hr>
+
+        <h2>상대배치 relative</h2>
+        <div class="box bg7 rt1"></div>
+        <div class="box bg8 rt2"></div>
+        <div class="box bg9 rt3"></div>
+        <hr>
+
+        <h2>고정위치 fixed</h2>
+        <div class="box bg10 fx1"></div>
+        <div class="box bg11 fx2"></div>
+        <div class="box bg12 fx3"></div>
+        <hr>
+
+
+
+    </body>
+</html>
+
+<!--
+
+
+위치치점
+    position 속성: html 요소가 어디에 놓일지 결정하는 방식을 지정
+    정적위치: static (기본값)
+              단순히 웹 페이지의 흐름에 따라 위에서 아래로, 좌측에서 우측으로 차례대로 요소를 배치하는 방식
+    절대위치: absolute
+              상위요소를 기준으로 상하좌우 지정한 값만큼 떨어진 위치에 요소를 배치
+              상위요소가 없는 경우 body 태그를 상위 요소로 본다
+              상하좌우 속성: top/bottom/left/right
+    상대위치: relative
+              현재 위치를 기준으로 상하좌우 지정한 값만큼 떨어진 위치에 요소를 배치
+    고정위치: fixed
+              웹페이지가 보여지는 장치의 가시영역viewport를 기준으로 요소를 배치한다
+              즉, 모든 요소들은 가시영역 왼쪽 상단을 기준으로 배치된다.
+
+-->
+

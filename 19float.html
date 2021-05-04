@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>float</title>
+
+        <style>
+
+
+            .box {width: 200px; height: 70px }
+            .bg1 {background: aliceblue;}
+            .bg2 {background: indianred;}
+            .bg3 {background: forestgreen;}
+            .box {float: left;}
+
+            .fl2 {width: 200px; height: 70px; float: right }
+
+            .box2 {width: 200px; height:100px; border: 1px solid blue;}
+            .of1 {overflow: auto}
+            .of2 {overflow: hidden}
+
+            .box3 {width: 200px; border: 1px solid blue;}
+            .of3 {white-space: nowrap; overflow: hidden;
+                  text-overflow: ellipsis }
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>유동배치</h1>
+        <h2>1.</h2>
+        <div class="box bg1"></div>
+        <div class="box bg2"></div>
+        <div class="box bg3"></div>
+        <p style="clear: both;padding-top: 10px"></p>
+
+        <div class="bg1 fl2"></div>
+        <div class="bg2 fl2"></div>
+        <div class="bg3 fl2"></div>
+        <p style="clear: both;padding-top: 10px"></p>
+
+        <h2>2.</h2>
+        <img src="img/dog.png" style="float: left;padding-right: 15px">
+        <p>한동안 접속이 되지 않아 이용자들의 우려를 샀던 국민 소셜네트워크서비스(SNS) 싸이월드의 월간순이용자(MAU)가 100만명에 달하는 것으로 나타났다. 페이스북과 인스타그램 등 외산 SNS에 밀려 국민SNS 자리에서 밀려났지만 '국민사진첩' 으로의 역할은 여전한 셈이다. 5일 통계·분석사이트 닐슨코리안클릭에 따르면 싸이월드의 지난 9월 순이용자수 (MAU, PC웹+모바일앱)는 약 98만명에 달하는 것으로 집계됐다. 모바일 접속자수는 67만명, PC웹 접속자수는 31만명을 기록해 모바일 이용자가 2배 이상 많았다.</p>
+        <p style="clear: both;padding-top: 10px"></p>
+
+
+        <h2>내용넘침</h2>
+        <div class="box2 of1"> 한동안 접속이 되지 않아 이용자들의 우려를 샀던 국민 소셜네트워크서비스(SNS) 싸이월드의 월간순이용자(MAU)가 100만명에 달하는 것으로 나타났다. 페이스북과 인스타그램 등 외산 SNS에 밀려 국민SNS 자리에서 밀려났지만 '국민사진첩' 으로의 역할은 여전한 셈이다. 5일 통계·분석사이트 닐슨코리안클릭에 따르면 싸이월드의 지난 9월 순이용자수 (MAU, PC웹+모바일앱)는 약 98만명에 달하는 것으로 집계됐다. 모바일 접속자수는 67만명, PC웹 접속자수는 31만명을 기록해 모바일 이용자가 2배 이상 많았다. </div>
+
+        <p></p>
+
+        <div class="box2 of2"> 페이스북과 인스타그램 등 외산 SNS에 밀려 국민SNS 자리에서 밀려났지만 '국민사진첩' 으로의 역할은 여전한 셈이다. 5일 통계·분석사이트 닐슨코리안클릭에 따르면 싸이월드의 지난 9월 순이용자수 (MAU, PC웹+모바일앱)는 약 98만명에 달하는 것으로 집계됐다. 모바일 접속자수는 67만명, PC웹 접속자수는 31만명을 기록해 모바일 이용자가 2배 이상 많았다. </div>
+
+        <p></p>
+
+        <div class="box3 of3"> 페이스북과 인스타그램 등 외산 SNS에 밀려 국민SNS 자리에서 밀려났지만 '국민사진첩' 으로의 역할은 여전한 셈이다. 5일 통계·분석사이트 닐슨코리안클릭에 따르면 싸이월드의 지난 9월 순이용자수 (MAU, PC웹+모바일앱)는 약 98만명에 달하는 것으로 집계됐다. 모바일 접속자수는 67만명, PC웹 접속자수는 31만명을 기록해 모바일 이용자가 2배 이상 많았다. </div>
+
+
+
+
+
+
+    </body>
+</html>
+
+<!--
+
+
+유동float배치
+    html 요소들의 일반적인 배치방향은 위에서 아래 (static)
+    하지만 상황에 따라 배치방향을 다르게 해서 다른 요소들과 자연스레 어울리도록 배치하고 싶을 때 float 속성을 사용한다
+    단, float 속성을 해제하려면 clear 속성을 설정해야 한다
+
+내용넘침
+    내용이 컨테이너보다 큰 경우, 내용이 밖으로 넘칠 수 있다.
+    이럴 때 overflow 속성을 지정하면 내용이 밖으로 넘치는 것을 막을 수 있다.
+
+    hidden: 넘치는 내용이 안 보이게 숨김
+    auto: 넘치는 내용을 스크롤바를 이용해서 볼 수 있도록 함
+
+    한편, text-overflow 속성을 통해 생략된 텍스크 부분에 대해 말줄침표를 표시할 수도 있다. 단, white-space 속성을 통해 자동 줄바꿈 효과를 꺼두어야 한다.
+-->
+

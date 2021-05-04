@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang = "ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>table</title>
+
+        <style>
+            table {width: 500px}
+            td {width: 33%; height: 30px}
+
+            .tb1 {border: 1px solid black;
+                    border-collapse: collapse}
+            .tb1 td {border: 1px solid black}
+
+            .tb2 td {height: 100px}
+            .tb2 tr:first-child td:first-child {text-align: right}
+            .tb2 tr:first-child td:nth-child(2) {text-align: center}
+
+            .tb2 tr:nth-child(2) td:first-child {vertical-align: top}
+            .tb2 tr:nth-child(2) td:nth-child(2) {vertical-align: bottom}
+
+            .tb2 tr:last-child td:first-child {vertical-align: bottom; text-align: center}
+            .tb2 tr:last-child td:nth-child(2) {vertical-align: top; text-align: center}
+
+            .tb3 { border-collapse: collapse }
+            .tb3 td { border-bottom: 1px solid silver; height: 35px }
+
+            .striped { border-collapse: collapse; }
+            .striped td { border: 1px solid #ccc }
+            .striped tr:nth-child(even) { background: aliceblue }
+
+            .hovered tr:hover { background: indianred }
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>테이블</h1>
+        <table class="tb1">
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+        </table>
+
+        <hr>
+        <table class="tb1 tb2">
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+        </table>
+
+        <hr>
+        <table class="tb3"> <!-- 밑줄 테이블 -->
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+        </table>
+
+        <hr>
+        <table class="striped"> <!-- 줄무늬 테이블 -->
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+        </table>
+
+
+
+
+    </body>
+</html>
+
+<!--
+
+
+table
+    border-collapse 속성: 테두리가 하나로 보이도록 설정
+    테이블의 쉘 안 정렬은 text-align과 vertical-align으로 설정한다.
+
+스트라이프 테이블
+    짝수와 혹수 색의 배경색을 서로 다르게 구성
+    nth-child 속성의 odd/even 속성값을 지정하여 설정
+
+-->
+
