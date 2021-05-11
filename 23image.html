@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>이미지</h1>
+      <h2>유동형 이미지: img-fluid</h2>
+      <img src="/img/dittobackground.jpg" class="img-fluid" alt="반응형 이미지">
+      <img src="/img/dittobackground2.jpg" class="img-fluid" alt="반응형 이미지">
+
+      <h2>이미지 썸네일: img-thumbnail</h2>
+      <img src="/img/dittobackground2.jpg" class="img-thumbnail">
+
+      <h2>이미지 정렬: float-left, float-right</h2>
+      <div>
+          <img src="/img/dittobackground2.jpg" class="float-left">
+          <img src="/img/dittobackground2.jpg" class="float-right">
+      </div>
+
+      <div class="clearfix"></div>
+
+      <h2>이미지 가장자리 라운드: rounded</h2>
+      <img src="/img/dittobackground2.jpg" class="rounded">
+
+      <h2>설명이 있는 이미지: figure, figurecaption</h2>
+      <figure class="figure">
+          <img src="/img/dittobackground2.jpg"
+               class="rounded img-fluid figure-img">
+          <figcaption class="figure-caption text-right">그림1-1. 메타몽 이미지</figcaption>
+      </figure>
+
+
+
+
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!--
+반응형 이미지
+    이미지의 해상도(가로x세로 픽셀수)가 장치 디스플레이보다 큰 경우 제대로 보이지 않는 상황이 발생한다.
+    전체 이미지를 보기 위해 스크롤바로 이리저리 움직여야한다.
+    이런 경우 이미지의 너비를 유동적으로 설정하면 장치의 디스플레이 해상도에 맞춰 이미지를 출력한다.
+    반응형 이미지로 설정하면 디스플레이 해상도보다 큰 이미지인 경우 너비를 100%로 설정해서 출력하고, 해상도보다 작으면 원래 이미지 크기로 출력한다.
+
+
+
+
+-->
+

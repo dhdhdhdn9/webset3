@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        .bg {background: gainsboro; text-align: center}
+        .box {height: 100px}
+        .box2 {height: 35px; background: Turquoise;}
+    </style>
+  </head>
+  <body>
+
+    <h1>부트스트랩 레이아웃</h1>
+      <h2>layout system</h2>
+      <div class = "container bg box">고정폭</div>
+      <hr>
+      <div class = "container-fluid bg box">유동폭</div>
+      <h2>grid system</h2>
+      <div class = "container bg box">
+        <div class="row">
+            <div class = "box2 col-1">1</div>
+            <div class = "box2 col-1">2</div>
+            <div class = "box2 col-1">3</div>
+            <div class = "box2 col-1">4</div>
+            <div class = "box2 col-1">5</div>
+            <div class = "box2 col-1">6</div>
+            <div class = "box2 col-1">7</div>
+            <div class = "box2 col-1">8</div>
+            <div class = "box2 col-1">9</div>
+            <div class = "box2 col-1">10</div>
+            <div class = "box2 col-1">11</div>
+            <div class = "box2 col-1">12</div>
+        </div>
+      </div>
+      <hr>
+      <div class = "container-fluid bg box">
+        <div class="row">
+            <div class = "box2 col-1">1</div>
+            <div class = "box2 col-1">2</div>
+            <div class = "box2 col-1">3</div>
+            <div class = "box2 col-1">4</div>
+            <div class = "box2 col-1">5</div>
+            <div class = "box2 col-1">6</div>
+            <div class = "box2 col-1">7</div>
+            <div class = "box2 col-1">8</div>
+            <div class = "box2 col-1">9</div>
+            <div class = "box2 col-1">10</div>
+            <div class = "box2 col-1">11</div>
+            <div class = "box2 col-1">12</div>
+        </div>
+      </div>
+      <hr> <!-- 중단점 기준 유동폭 열 너비 -->
+      <div class = "container bg box">
+        <div class="row">
+            <div class = "box2 col-md">1</div>
+            <div class = "box2 col-md">2</div>
+            <div class = "box2 col-md">3</div>
+        </div>
+      </div>
+      <hr><!-- 고정폭 열 너비-->
+      <div class = "container bg box">
+        <div class="row">
+            <div class = "box2 col">1</div>
+            <div class = "box2 col">2</div>
+            <div class = "box2 col">3</div>
+        </div>
+      </div>
+
+      <hr>
+      <div class = "container">
+          <header class = "row box2" style="background: crimson">
+            <div class = "col">header</div></header>
+          <nav class = "row box2" style="background: lavender">
+            <div class = "col-md">nav</div></nav>
+
+          <div id="main" class="row" style="height: 500px">
+            <aside class="col-md-3"
+                   style="background: rosybrown">메뉴</aside>
+            <section class="col-md-9"
+                   style="background: gold">메뉴</section>
+          </div>
+
+          <footer class = "row box2" style="background: lightblue">
+              <div class = "col-md">footer</div></footer>
+      </div>
+
+
+
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+<!--
+
+부트스트랩 레이아웃
+
+grid system
+    화면을 일정 크기의 격자로 나눈 것
+    부트스트랩에서는 이것을 토대로 웹페이지를 구성하는 요소와 컨텐츠를 배치할 수 있다.
+    이 방식을 통해 테스크탑/모바일/태블릿 환경에 다른 컨텐츠 재배치가 훨신 수월해짐
+    부트스트랩은 반응형 12열 그리드 시스템을 사용한다.
+
+container, row, col
+    부트스트랩의 레이아웃 관련 스타일에서 사용된다.
+    html에서 표를 만드는 것과 유사하게 container 클래스는 tr, th는 row, td는 col 클래스와 대응한다고 보면 된다.
+    즉, container 클래스로 레이아웃의 전체공간을 정의하고, row와 col로 행과 열을 정의한다고 보면 된다.
+
+.container
+    반응형 고정폭 레이아웃
+
+.container-fluid
+    유동 최대폭 레이아웃
+
+.container-중단점
+    반응형 중단점 레이아웃
+
+.col-중단점
+    중단점을 기준으로 중단점 이하면 유동폭, 이상이면 고정폭으로 열의 너비를 결정한다
+
+
+
+-->
+
