@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>이벤트 처리</title>
+  </head>
+
+  <body>
+      <h1>이벤트 처리</h1>
+      <button type="button" onclick="alert('Hello, world!')"
+              onmouseover="alert('Hello, world, again!')">눌러보세요!</button>
+      <button type="button" onclick="sayHello()"
+              onmouseover="sayHello2()">또 눌러보세요!</button>
+      <button type="button" id="btn3">다시 눌러보세요!</button>
+      <button type="button" id="btn4">한번 더, 눌러보세요!</button>
+      <script>
+          function sayHello() { alert('Hello, world!'); }
+          function sayHello2() { alert('Hello, world, again!'); }
+
+          window.onload = function() {
+              let btn3 = document.getElementById('btn3')
+              btn3.onclick = sayHello;
+          }
+            // 브라우저에 의해 문서가 로딩될 때 위의 코드를 실행
+            // btn3이라는 객체를 찾아서 btn3 변수에 저장
+            // btn3 변수에 click 이벤트를 추가하고 이벤트 발생 시 sayHello 함수를 실행
+
+          let btn4 = document.getElementById('btn4')
+          btn4.addEventListener('click', sayHello);
+          // window.onload를 사용하지 않고 이벤트 정의 가능
+
+      </script>
+
+
+      <h2>성적 처리 프로그램</h2>
+      <form name="sjfrm">
+          <div>이름: <input type = "text" name="name"></div>
+          <div>국어: <input type = "text" name="kor"></div>
+          <div>영어: <input type = "text" name="eng"></div>
+          <div>수학: <input type = "text" name="mat"></div>
+          <div><button type="button" id="sjbtn">입력완료</button></div>
+          <span id="result"></span>
+      </form>
+
+      <script>
+          // 입력완료 버튼을 누르면 입력한 데이터에 대한 성적처리 진행
+          let sjbtn = document.getElementById('sjbtn');
+          sjbtn.addEventListener('click', computeSungJuk);
+
+          function computeSungJuk() {
+              // name 속성으로 폼요소 객체 가져오기
+              // document.폼이름.폼변수명
+              let namefrm = /^[a-zA-Z]{1,15}$/;
+              let korfrm = /^[0-9][0-9]{0,2}$/;
+              let engfrm = /^[0-9][0-9]{0,2}$/;
+              let matfrm = /^[0-9][0-9]{0,2}$/;
+              let name = document.sjfrm.name;
+              let kor = document.sjfrm.kor;
+              let eng = document.sjfrm.eng;
+              let mat = document.sjfrm.mat;
+
+              // 폼 유효성 검사
+              if (name.value == '') {
+                  alert('이름을 입력하세요!');
+                  name.focus();
+              } else if (kor.value == '') {
+                  alert('국어 점수를 입력하세요!');
+                  kor.focus();
+              } else if (eng.value == '') {
+                  alert('영어 점수를 입력하세요!');
+                  eng.focus();
+              } else if (mat.value == '') {
+                  alert('수학 점수를 입력하세요!');
+                  mat.focus();
+              } else {
+                  let r = document.getElementById('result');
+
+                  let tot = parseInt(kor.value) + parseInt(eng.value) + parseInt(mat.value)
+                  let avg = tot / 3;
+                  let grd = '가';
+                  if (avg >= 90) grd = '수';
+                    else if (avg >= 80) grd = '우';
+                    else if (avg >= 70) grd = '미';
+                    else if (avg >= 60) grd = '양';
+                  let result = name.value + '/' + kor.value + '/' + eng.value + '/' + mat.value + '<br>';
+                  result += tot + '/' + avg.toFixed(1) + '/' + grd;
+//                  document.write('<p>' + result + '</p>');
+                  r.innerHTML = result;
+               }
+
+          }
+      </script>
+
+
+      <h2>로그인 처리 프로그램</h2>
+      <form name="loginfrm">
+          <div>아이디: <input type = "text" name="userid"></div>
+          <div>비밀번호: <input type = "password" name="passwd"></div>
+          <div><button type="button" id="lgnbtn">로그인</button></div>
+          <span id = "isLogin"></span>
+      </form>
+
+      <script>
+      // 아이디, 비밀번호를 미리 설정해두고
+      // 폼을 통해 입력받은 아이디, 비밀번호를 비교해서
+      // 일치하면 '로그인 성공!'이라는
+      // 일치하지 않으면 '로그인 실패!'라는 메세지를 출력
+
+      // 폼이름은 loginfrm으로 설정
+      // 아이디/비밀번호 : userid, passwd
+      // 미리 설정해둔 아이디/비밀번호 : myuid=abc123, mypwd=987xyz
+          let lgnbtn = document.getElementById('lgnbtn');
+          lgnbtn.addEventListener('click', tryLogin);
+
+          function tryLogin() {
+              let myuid = 'abc123';
+              let mypwd = '987xyz';
+              let userid = document.loginfrm.userid;
+              let passwd = document.loginfrm.passwd;
+              let isLogin = document.getElementById('isLogin');
+
+              // 폼 유효성 검사
+              if (userid.value == '') {
+                  alert('아이디를 입력하세요');
+                  userid.focus();
+              } else if (passwd.value == '') {
+                  alert('비밀번호를 입력하세요');
+                  passwd.focus();
+              } else if (userid.value == myuid && passwd.value == mypwd ) {
+                  isLogin.innerHTML = '로그인 성공';
+              } else {
+                  isLogin.innerHTML = '로그인 실패';
+              }
+
+          }
+      </script>
+
+
+      <h2>회원가입 시 아이디 중복체크</h2>
+      <form name="regifrm">
+          <div>아이디: <input type = "text" name="userid" id="userid"></div>
+          <span id = "isjoin"></span>
+          <div>비밀번호: <input type = "password" name="passwd"></div>
+          <div><button type="button" id="regbtn">가입하기</button></div>
+      </form>
+
+      <script>
+          // 이미 가입한 아이디를  미리 설정해두고, 가입 시 입력한 아이디와 비교해서 존재여부를 알려줌
+          // 기존 아이디와 새로운 아이디가 같으면 '아이디가 존재합니다.'
+          // 기존 아이디와 새로운 아이디가 다르면 '사용 가능한 아이디입니다.'
+//          let joinid = 'abc123';
+          let joinid = ['abc123', '987xyz', '123987'];
+          let userid = document.getElementById('userid');
+          let isjoin = document.getElementById('isjoin');
+
+          userid.addEventListener('blur', checkuid);
+
+          function checkuid() {
+              for (let i = 0; i < joinid.length; ++i) {
+                    isjoin.style.fontWeight='bold';
+                    if (userid.value == joinid[i]) {
+                        isjoin.innerHTML = '아이디가 존재합니다.';
+                        isjoin.style.color='crimson';
+                        break;
+                    } else {
+                        isjoin.innerHTML = '사용가능한 아이디입니다.';
+                        isjoin.style.color='dodgerblue';
+                    }
+              }
+          }
+
+       </script>
+
+
+
+
+  </body>
+</html>
+
+<!--
+이벤트event
+    html 요소에 발생하는 어떤 사건(마우스 클릭, 키 입력, 프라우저 크기 변경)을 의미
+    특정 요소에 어떤 사건이 발생할 경우 웹브라우져는 이를 감지해서 알려준다. 개발자는 이것을 이용해서 어떤 사건에 대한 처리를 구현할 수 있다.
+    이러한 개발 방식을 이벤트 중신 event-driven 프로그래밍이라 한다.
+
+Event 종류
+    load        : 웹브라우져가 웹문서를 읽었을때
+    click       : 마우스 버튼 클릭시
+    dbclick     : 마우스 버튼 더블 클릭시
+    mouserover  : 마우스 포인터를 특정요소에 올렸을때
+    mouserout   : 마우스 포인터가 특정요소에서 벗어났을때
+    keydown     : 키를 눌렀을때
+    keyup       : 키를 눌렀다가 뗐을때
+    focus       : 마우스로 특정요소를 선택했을때
+    blur        : 마우스로 특정요소를 선택 해제했을때
+    submit      : submit버튼을 클릭했을때
+    change      : 폼요소의 내용이 변경되었을때
+
+event 처리 관련용어
+    이벤트이름    : event 종류를 지청하는 단어 (ex: click)
+    이벤트속성    : 이벤트이름에 on 접두사를 붙인것 (ex: onclick)
+    이벤트리스너(핸들러) : 이벤트발생시 처리할 함수 의미
+
+event 등록 방법
+    인라인 이벤트 (정적 이벤트)
+        요소에 on~ 속성으로 이벤트함수 지정
+        이벤트처리함수를 1개만 등록할 수 있음
+        코드가 지저분해지고 유지보수가 어려워짐
+    포준 이벤트 (동적 이벤트)
+        자바스크립트를 이용해서 웹문서가 브라우져에 의해
+        적재(loding)되었을때 요소에 이벤트를 등록하고 처리
+        요소명.addEventListener(이벤트, 함수, 캡처링);
+        요소명.removeEventListener(이벤트, 함수);
+
+
+-->

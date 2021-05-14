@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>함수</title>
+  </head>
+
+  <body>
+      <h1>함수</h1>
+      <script>
+          // 함수
+          // 하나의 특별한 목적을 수행하기 위해 설계되고 작성된 코드들의 묶음
+          // 특정 작업이 필요할 때마다 호출하여 반복적으로 수행 가능
+          // 자바스크립트에서는 함수를 일종의 자료형으로 인식 (중요)
+
+          // 자바스크립트에서 함수 정의 시 function이라는 예약어 사용
+          // function 이름 (매개변수들...) {
+          //    함수몸체
+          // }
+
+          // 함수 호출 : 함수명(인자값)
+
+          // 단을 입력받아 구구단을 출력하는 프로그램
+
+          // 구구단 출력 1
+          document.write('7x1=7' + '<br>');
+          document.write('7 x 2 = 14' + '<br>');
+          document.write('7 x 3 = 21' + '<br>');
+          document.write('7 x 4 = 28' + '<br>');
+          document.write('7 x 5 = 35' + '<br>');
+          document.write('7 x 6 = 42' + '<br>');
+          document.write('7 x 7 = 49' + '<br>');
+          document.write('7 x 8 = 56' + '<br>');
+          document.write('7 x 9 = 63' + '<br>');
+
+
+          //구구단 출력2
+          document.write('<hr>');
+          for (let i = 1; i<= 9; ++i) {
+              document.write('7x' + i + '=' + (7*i) + '<br>');
+          }
+
+
+          // 구구단 출력3 - 함수 정의
+          document.write('<hr>');
+            function gugudan() {
+                for (let i = 1; i<= 9; ++i) {
+                        document.write('7x' + i + '=' + (7*i) + '<br>');
+                }
+            }
+          //함수호출
+          gugudan();
+
+
+          // 구구단 출력 4 - 사용자로부터 값을 입력받아 출력
+          // 변수명 = prompt(안내문구)
+          document.write('<hr>');
+//          let dan = prompt('단을 입력하세요(1-9)')
+          document.write('구구단 ' + dan +'단' + '<br>')
+
+          function gugudan2() {
+                for (let i = 1; i<= 9; ++i) {
+                        document.write(dan + 'x' + i + '=' + (dan*i) + '<br>');
+                }
+            }
+          gugudan2();
+      </script>
+
+
+      <h1>함수의 매개변수와 리턴값</h1>
+      <script>
+          // 리턴값
+          // 함수의 맨 끝에 return문을 사용하면 함수를 호출한 주체에게 결과를 넘길 수 있다.
+          // 단, 함수의 중간에 return문을 사용하면 함수의 나머지 부분을 수행하지 않고 중단시키는 역할을 하기도 한다.
+          document.write('<hr>');
+
+          function gugudan3() {
+//              let dan = prompt('단을 입력하세요(1-9)')
+
+              document.write('구구단 ' + dan +'단' + '<br>')
+              let result= '';   // 출력결과를 저장할 변수 선언
+              for (let i = 1; i<= 9; ++i) {
+                result += dan + 'x' + i + '=' + (dan*i) + '<br>';
+              }
+              document.write(result);
+              return result;    // 모아둔 결과를 호출자에게 넘겨줌
+          }
+
+          document.write( gugudan3() );
+
+
+          // 2개의 숫자를 입력받아 사칙연산을 수행하고 결과를 출력하는 compute 함수를 작성하세요
+
+          //매개변수가 있는 함수 정의
+          // function 함수명(매개변수1, 매개변수2) {
+          // 함수몸체
+          // }
+          document.write('<hr>');
+
+          function compute (x, y) {
+              let sum = x + y;
+              let sub = x - y;
+              let mul = x * y;
+              let div = x / y;
+
+              let result = sum + '/' + sub + '/' + mul + '/' + div + '<br>';
+              document.write(result);
+          }
+
+          compute(18,9);
+
+      </script>
+
+      <h1>익명 함수</h1>
+      <script>
+          // 익명함수 anonymous function
+          // 함수를 정의할 때 이름을 지정하지 않은 함수를 의미
+          // 함수를 실행할 때 반드시 함수명을 호출해야 하는데 익명함수는 함수정의와 동시에 함수를 바로 실행할 수도 있다
+
+          // 간단한 인삿말 출력
+          function sayHello(msg) {
+              document.write(msg + '<br>');
+          } // 기명함수
+
+          sayHello('Hello, world!');
+
+          let sayHello2 = function (msg) {
+              document.write(msg + '<br>');
+          } // 익명함수
+
+          sayHello2('Hello, world, again!');
+
+
+          // ES6에서 추가된 arrow function: 람다lambda식
+//          let sayHello3 = (msg) => {document.write(msg + '<br>');};
+//          let sayHello3 = (msg) => document.write(msg + '<br>');
+          let sayHello3 = msg => document.write(msg + '<br>');
+          sayHello3('Hello, world, repeat!');
+
+
+          // 함수 정의와 동시에 바로 실행
+          (function (msg) {
+              document.write(msg + '<br>');
+          })('Hello, world, so on!');
+      </script>
+
+
+      <h1>함수 제어하기</h1>
+      <span id="today"></span>
+      <span id="today2"></span>
+      <script>
+          //특정함수를 주기적으로 실행하기
+          // 주기적으로 특정함수를 실행하려면 setInterval과 setTimeout 함수를 사용하면 된다.
+
+          // setTimeout: 일정 시간이 지난 후 한번만 실행
+          //             setTimeout(함수명, 시간(ms))
+          // setInterval: 일정시간을 간격으로 반복 실행
+          //             setInterval(함수명, 시간(ms))
+
+          //오늘의 날짜와 시간을 실시간으로 출력하는 프로그램 작성
+
+          function today() {
+              let today = new Date()
+
+              let result = today.getFullYear() + "년 " +
+                         (today.getMonth() + 1)+ "월 " +
+                         today.getDate()  + "일 " +
+                         today.getHours() + "시 " +
+                         today.getMinutes() + "분 " +
+                         today.getSeconds() + "초 <br>";
+//             document.write(result);
+             let t = document.getElementById('today');
+             t.innerHTML = result;
+          }
+
+          // today();
+
+          // setTimeout(today, 5000);  // 5초가 지난 후 today를 1번 실행
+          setInterval(today, 1000);  // 1초마다 today를 반복실행 실행
+
+          // 월, 일, 시, 분, 초 출력시 10보다 작으면 0을 붙여서 출력하는 today2 함수 작성
+
+          function today2() {
+              let today2 = new Date()
+
+              let m = (today2.getMonth() + 1);
+              let d = today2.getDate();
+              let h = today2.getHours();
+              let min = today2.getMinutes();
+              let s = today2.getSeconds();
+
+              let result = today2.getFullYear() + "년 "
+                           + z(m) + "월 " +
+                           + z(d) + "일 " +
+                           + z(h) + "시 " +
+                           + z(min) + "분 " +
+                           + z(s) + "초 <br>";
+
+             let t = document.getElementById('today2');
+             t.innerHTML = result;
+          }
+
+          function z(val) {
+              if (val<10) val = '0' + val;
+              return val;
+          } // 입력값이 10보다 작으면 입력값 앞에 0을 붙여 return
+
+          setInterval(today2, 1000);
+
+      </script>
+
+  </body>
+</html>
+
+<!--
+
+
+-->
