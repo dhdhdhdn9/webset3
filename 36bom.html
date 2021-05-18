@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>bom</title>
+  </head>
+
+  <body>
+      <h1>bom</h1>
+      <div>
+          <button type="button" id="newbtn">새창만들기</button>
+          <button type="button" id="rmvbtn">새창닫기</button>
+          <button type="button" id="movbtn">새창위치변경</button>
+          <button type="button" id="sizbtn">새창크기변경</button>
+          <button type="button" id="cntbtn">화면중앙에 창띄우기</button>
+          <button type="button" id="autobtn">
+              창띄우고 위치/크기변경 무한 실행</button>
+          <button type="button" id="stopbtn">
+              창띄우고 위치/크기변경 무한 실행 중지</button>
+      </div>
+      <script>
+          // 버튼 객체 초기화
+          let newbtn = document.getElementById('newbtn');
+          let rmvbtn = document.getElementById('rmvbtn');
+          let movbtn = document.getElementById('movbtn');
+          let sizbtn = document.getElementById('sizbtn');
+          let cntbtn = document.getElementById('cntbtn');
+          let autobtn = document.getElementById('autobtn');
+          let stopbtn = document.getElementById('stopbtn');
+
+          // 버튼 객체 이벤트 추가
+          newbtn.addEventListener('click', makewin);
+          rmvbtn.addEventListener('click', closewin);
+          movbtn.addEventListener('click', movewin);
+          sizbtn.addEventListener('click', sizewin);
+          cntbtn.addEventListener('click', cntrwin);
+          autobtn.addEventListener('click', autowin);
+          stopbtn.addEventListener('click', stopwin);
+
+          // 새창핸들러
+          // window.open(문서경로, 창이름, 옵션);
+          var newwin = null;    // 생성된 창 관리용 변수
+          function makewin() {
+              // window.open('35dom.html', '');
+              if (newwin == null)
+                  newwin = window.open('35dom.html','','width=300, height=300');
+          }
+
+          // 창 닫기 핸들러
+          // 1. window.close
+          // 2. 객체명.close
+          function closewin () {
+              if (newwin != null) {
+                  // null이라면 새로운 창이 없다는 뜻이기 때문
+                  newwin.close();
+                  newwin = null;
+                  // 새로운 창값을 없애기 위해 = 생성된 창을 닫는 것
+              }
+          }
+
+          // 생성한 창의 위치 변경
+          // 절대좌표: moveTo(x,y)
+          // 상대크기: move by(a,b)
+          // x, y 좌표를 난수로 생성함
+          // x의 최대값은 1920, y의 최대값은 1080으로 설정
+          function movewin() {
+//              newwin.moveTo(500,500);
+              let x = Math.floor( Math.random()*1920 );
+              let y = Math.floor( Math.random()*1080 );
+
+              newwin.moveTo(x, y);
+              newwin.focus();
+          }
+
+          // 생성한 창 크기 변경
+          // 절대크기: resizeTo(a, b)
+          // 상대크기: resizeBy(a, b)
+          function sizewin() {
+              let w = Math.floor( Math.random()*350 );
+              let h = Math.floor( Math.random()*350 );
+              newwin.resizeTo(w, h);
+              newwin.focus(); // 창이 전면으로 나옴
+          }
+
+          // 생성한 창을 화면 중앙에 배치하기
+          // 화면 가로 크기: screen.width
+          // 화면 세로 크기: screen.height
+          // 현재 창의 가로 크기: 창객체.outerWidth
+          // 현재 창의 세로 크기: 창객체.outerHeight
+          function cntrwin() {
+              let sw = screen.width;
+              let sh = screen.height;
+              let ww = newwin.outerWidth;
+              let wh = newwin.outerHeight;
+
+              newwin.moveTo( (sw/2) - (ww/2), (sh/2) - (wh/2) );
+              newwin.focus();   //창이 전면으로 나옴
+          }
+
+          // 창 띄우고 위치와 크기 무한대로 실행
+          var itval = null;
+          function autowin() {
+              closewin();
+              makewin();
+//              while(true) {
+//                  movewin();
+//                  sizewin();
+//              } // 너무 빠르게 위치와 크기가 변경됨
+              itval = setInterval( function() {
+                  movewin();
+                  sizewin();
+              }, 300);
+          }
+
+          // 창 띄우고 위치와 크기 무한대로 실행 중지
+          // clearInterval(대상객체)
+          function stopwin() {
+              clearInterval(itval);
+          }
+      </script>
+
+
+      <h2>screen 객체</h2>
+
+
+      <h2>location 객체</h2>
+      <div>
+          <button type="button" id="gbtn" style="background: crimson; color: ghostwhite">구글로</button>
+          <button type="button" id="nbtn" style="background: seagreen; color: ghostwhite">네이버로</button>
+          <button type="button" id="dbtn" style="background: dodgerblue; color: ghostwhite">다음으로</button>
+      </div>
+      <script>
+          let url = location.href;
+          document.write(url + '<br>');
+          document.write(location.hostname + '<br>');
+          document.write(location.pathname + '<br>');
+      </script>
+      <script>
+          let gbtn = document.getElementById('gbtn');
+          let nbtn = document.getElementById('nbtn');
+          let dbtn = document.getElementById('dbtn');
+
+          gbtn.addEventListener('click', function() {
+              location.href='http://google.co.kr';
+                } );
+          nbtn.addEventListener('click', function() {
+              location.href='http://naver.com';
+                } );
+          dbtn.addEventListener('click', function() {
+              location.href='http://daum.net';
+                } );
+      </script>
+
+
+      <h2>navigator 객체</h2>
+      <script>
+          let appname = navigator.appName;
+          let appcode = navigator.appCodeName;
+          let appver = navigator.appVersion;
+          let ua = navigator.userAgent;
+          let os = navigator.platform;
+
+          let result = appname + '<br>';
+          result += appcode + '<br>';
+          result += appver + '<br>';
+          result += ua + '<br>';
+          result += os + '<br>';
+          document.write(result);
+      </script>
+      <script>
+          // 브라우저별 코드네임
+          // IE - tirdent
+          // FF - Firefox
+          // CR - Chrome
+          // EG - Edge
+          // 사용자 브라우저에 따라 인사말을 다르게 출력
+          // IE : 당신은 IE를 사용중이군요, Edge로 얼른 바꾸세요
+          // FF : 당신은 FF를 사용중이군요
+          // CR : 당신은 CR를 사용중이군요
+          // EG : 당신은 EG를 사용중이군요
+
+
+//          if (ua.indexOf('Trident') > 0) {
+//              document.write('당신은 IE를 사용중이군요, Edge로 얼른 바꾸세요.');
+//          } else if (ua.indexOf('Firefox') > 0) {
+//              document.write('당신은 FF를 사용중이군요.');
+//          } else if (ua.indexOf('Chrome') > 0) {
+//              document.write('당신은 CR를 사용중이군요.');
+//          } else if (ua.indexOf('Edge') > 0) {
+//              document.write('당신은 EG를 사용중이군요.');
+//          }
+          ua = navigator.userAgent;
+
+          let msg = ['당신은 IE를 사용중이군요, Edge로 얼른 바꾸세요.',
+                     '당신은 FF를 사용중이군요.','당신은 CR를 사용중이군요.',  '당신은 EG를 사용중이군요.'];
+          let cdname = ['Trident', 'Firefox', 'Chrome', 'Edg'];
+          result = '';
+
+          if (ua.indexOf(cdname[0]) >= 0) result = msg[0];
+          else if (ua.indexOf(cdname[1]) >= 0) result = msg[1];
+          else if (ua.indexOf(cdname[2]) >= 0) result = msg[2];{
+              if (ua.indexOf(cdname[3]) >= 0)
+                  result = msg[3];
+              else
+                  result = msg[2];
+          }
+
+          alert(result);
+      </script>
+
+  </body>
+</html>
+
+<!--
+브라우저 객체 모델 (browser object model, bom)
+    자바스크립트를 이용해서 접속자의 브라우저/운영체제 정보를 알아내거나 브라우저의 크기나 위치를 설정하는 등 브라우저의 여러 기능을 동적으로 제어할 수 있도록 지원하는 프로그래밍 모델
+
+    DOM은 W3C 표준이지만, BOM은 표준이 아니기 때문에 브라우저마다 사용하는 방법이나 결과가 다를 수 있다.
+-->
+<!--
+window 객체
+    브라우저 창을 제어할 수 있는 여러가지 속성을 제공
+    alert    : 간단한 메세지창 생성
+    prompt   : 간단한 입력창 생성, 반환값은 입력값, 값의 유형은 문자열
+    confirm  : 간단한 선택창 생성, 반환값은 true/false 중 하나
+    moveTo   : 브라우저의 위치를 변경
+    resizeTo : 브라우저의 크기를 변경
+-->
+<!--
+screen 객체
+    사용자의 디스플레이에 대한 다양한 정보를 제어하는 객체
+    화면 크기, 색상에 대한 정보를 알 수 있다
+    screen.width
+    screen.height
+-->
+<!--
+location 객체
+    현재 브라우저가 표시하는 문서의 url을 얻거나 브라우저에 표시할 문서의 위치를 지정할 수 있다.
+    location.href     : 현재 브라우져 url 조회/변경
+    location.hostname : 현재 문서의 url중 호스트 조회
+    location.pathname : 현재 문서의 url중 파일경로 조회
+-->
+<!--
+navigator 객체
+    웹 브라우저나 실행환경의 정보를 알 수 있다.
+    appCodeName : 브라우져 코드네임
+    appName     : 브라우져 이름
+    appVersion  : 브라우져 버젼
+    platform    : 브라우져가 실행중인 시스템 환경
+    userAgent   : 브라우져의 전체 정보
+-->
