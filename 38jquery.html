@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jquery</title>
+    <style>
+        .tgudln {text-decoration: overline}
+    </style>
+  </head>
+
+  <body>
+      <h1>제이쿼리</h1>
+      <p id="msg"></p>
+      <script>
+//          #1
+//          let msg = document.getElementById('msg');
+//          msg.innerHTML = 'Hello, world!';
+      </script>
+
+
+      <h2>제이쿼리 선택자</h2>
+      <span>Hello, world!</span>
+      <div id="two">Hello, world!</div>
+      <div class="three">Hello, world!</div>
+
+
+      <h2>제이쿼리 이벤트</h2>
+      <button type="button" id="hellobtn">여기를 클릭하세요</button>
+      <button type="button" id="hidebtn">숨기기</button>
+      <button type="button" id="showbtn">보이기</button>
+      <p id="eventxt">시간은 금이라구, 친구!</p>
+
+
+      <h2>제이쿼리 css 스타일</h2>
+      <p id="txt">시간은 금이라구, 친구!</p>
+      <button type="button" id="colorbtn">색상바꾸기</button>
+      <button type="button" id="underlinebtn">밑줄치기</button>
+      <button type="button" id="underlinebtn2">밑줄치기2</button>
+
+
+      <h2>제이쿼리 ajax</h2>
+      <button type="button" id="ajaxbtn">ajax 테스트</button>
+      <button type="button" id="ajaxbtn2">ajax 테스트2</button>
+      <p id='result'></p>
+
+
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+      <script>
+//          #2
+//          $('#msg').html('Hello, world, again!');
+
+//          #3
+//          $(document).ready(function() {
+//              $('#msg').html('Hello, world, again!');
+//          });
+
+//          #4
+          $(function() {
+              $('#msg').html('Hello, world, again!');
+          });
+      </script>
+
+      <script>
+          $('span').hide();
+          $('#two').hide();
+          $('.three').hide();
+      </script>
+
+      <script>
+          $('#hellobtn').click( function() {
+              alert('Hello, world!');
+          });
+
+          $('#hidebtn').click( function(){
+              $('#eventxt').hide(function() {});
+          });
+
+          $('#showbtn').click( function(){
+              $('#eventxt').show(function() {});
+          });
+      </script>
+
+      <script>
+          $('#colorbtn').click( function(){
+              $('#txt').css('color','crimson');
+          });
+          $('#underlinebtn').click( function(){
+              $('#txt').css('text-decoration', 'underline');
+          });
+          $('#underlinebtn2').click( function(){
+              $('#txt').toggleClass('tgudln');
+          });
+      </script>
+
+      <script>
+          // get 방식의 ajax: $.get(URL, {데이터}, 콜백함수);
+          $('#ajaxbtn').click( function() {
+              $.get('http://127.0.0.1:57587/hello.txt', {},
+                    function(data, status) {
+                        console.log(status);
+                        $('#result').html(data);
+                    });
+          });
+      </script>
+
+      <script>
+          $('#ajaxbtn2').click( function() { execajax(); });
+
+          function execajax() {
+              $.ajax({
+                  url: 'http://127.0.0.1:57587/hello.txt',
+                  data: {},
+                  method: 'get',
+                  dataType:'text'
+              })
+              .done(function(data) {
+                  $('#result').html(data).css('color','crimson');
+              }) // ajax 요청 성공 시
+              .fail(function(xhr, status, errorThrown) {
+                  alert(status + '/' + errorThrown);
+              }) // ajax 요청 실패 시
+              .always(function(xhr, status) {
+                  alert('ajax 실행 완료!');
+              }); // ajax 처리 종료 시
+          }
+      </script>
+
+  </body>
+</html>
+
+<!--
+제이쿼리
+    2006년 미국의 존 레식(John Regig)이 개발
+    jquery1: IE 6,7,8 지원
+    jquery2: IE 6,7,8 지원 중단 IE 9+ 지원
+    jquery3: jqeury 차세대 버전, 속도 향상
+
+기본문법
+    $(선택자).동작함수()
+
+실행블럭
+$(document).ready(function() {});
+$(function) {});
+
+-->
